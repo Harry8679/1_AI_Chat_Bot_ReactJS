@@ -1,4 +1,4 @@
-import './App.css'
+// import './App.css'
 import ChatBotStart from './Components/ChatBotStart'
 
 function App() {
