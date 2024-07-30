@@ -1,12 +1,13 @@
 // import './App.css'
-import ChatBotStart from './Components/ChatBotStart'
+import ChatBotApp from './Components/ChatBotApp'
+// import ChatBotStart from './Components/ChatBotStart'
 
 function App() {
 
   return (
     <div className='container'>
-      <h1>Hello World</h1>
-      <ChatBotStart />
+      {/* <ChatBotStart /> */}
+      <ChatBotApp />
     </div>
   )
 }
