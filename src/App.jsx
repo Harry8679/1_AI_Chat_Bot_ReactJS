@@ -2,7 +2,7 @@
 import ChatBotApp from './Components/ChatBotApp'
 // import ChatBotStart from './Components/ChatBotStart'
 
-function App() {
+const App = () => {
 
   return (
     <div className='container'>
