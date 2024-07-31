@@ -39,7 +39,7 @@ const ChatBotApp = () => {
                 Typing ...
             </div>
             <form action="" className="msg-form">
-                <i className="fa-solid fa-face smile emoji"></i>
+                <i className="fa-solid fa-face-smile emoji"></i>
                 <input type="text" className="msg-input" placeholder="Type a message ..." />
                 <i className="fa-solid fa-paper-plane"></i>
             </form>
