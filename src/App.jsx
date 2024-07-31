@@ -1,6 +1,7 @@
 // import './App.css'
 import { useState } from 'react'
 import ChatBotApp from './Components/ChatBotApp'
+import ChatBotStart from './Components/ChatBotStart';
 // import ChatBotStart from './Components/ChatBotStart'
 
 const App = () => {
@@ -17,6 +18,11 @@ const App = () => {
   return (
     <div className='container'>
       {/* <ChatBotStart /> */}
+      {isChatting ? (
+        <ChatBotApp onGoBack={handleGoBack} />
+      ) : (
+        <ChatBotStart onStartChat={handleStartChat} />
+      )}
       <ChatBotApp />
     </div>
   )
