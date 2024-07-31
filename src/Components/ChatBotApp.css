@@ -154,5 +154,20 @@
 }
 
 .msg-input {
-    
+    height: 100%;
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: #7b8ebc;
+}
+
+.msg-input::placeholder {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #7b8ebc;
+}
+
+.msg-input:focus::placeholder {
+    opacity: 0;
 }
