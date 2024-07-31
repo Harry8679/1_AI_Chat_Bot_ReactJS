@@ -25,14 +25,14 @@ const ChatBotApp = () => {
       <div className="chat-window">
         <div className="chat-title">
             <h3>Chat with AI</h3>
-            <i className="bx-bx-arrow-back"></i>
+            <i className="bx bx-arrow-back arrow"></i>
         </div>
         <div className="chat">
             <div className="prompt">
                 Hi, how are you ? <span>12:59:51 PM</span>
             </div>
             <div className="response">
-                Hello, I'm just a computer program, so, I don't have feelings, but I'm here and ready to assist you ?
+                Hello, I am just a computer program, so, I do not have feelings, but I am here and ready to assist you ?
                 How can I help you today ? <span>12:59:52 PM</span>
             </div>
             <div className="typing">
