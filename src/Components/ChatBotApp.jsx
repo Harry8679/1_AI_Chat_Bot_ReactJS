@@ -52,20 +52,18 @@ const ChatBotApp = ({ onGoBack, chats, setChats }) => {
             <i className="bx bx-arrow-back arrow" onClick={onGoBack}></i>
         </div>
         <div className="chat">
-            <div className="prompt">
-                Hi, how are you ? <span>12:59:51 PM</span>
-            </div>
-            <div className="response">
-                Hello, I am just a computer program, so, I do not have feelings, but I am here and ready to assist you ?
-                How can I help you today ? <span>12:59:52 PM</span>
-            </div>
+            {messages.map((msg, index) => (
+                <div key={index} className={msg.type === 'prompt' ? 'prompt' : 'response'}>
+                    {msg.text} <span>{msg.timestamp}</span>
+                </div>
+            ))}
             <div className="typing">
                 Typing ...
             </div>
-            <form action="" className="msg-form">
+            <form className="msg-form" onSubmit={(e) => e.preventDefault()}>
                 <i className="fa-solid fa-face-smile emoji"></i>
-                <input type="text" className="msg-input" placeholder="Type a message ..." />
-                <i className="fa-solid fa-paper-plane"></i>
+                <input type="text" className="msg-input" placeholder="Type a message ..." value={inputvalue} onChange={handleInputChange} />
+                <i className="fa-solid fa-paper-plane" onClick={sendMessage}></i>
             </form>
         </div>
       </div>
