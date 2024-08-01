@@ -32,6 +32,14 @@ const ChatBotApp = ({ onGoBack, chats, setChats }) => {
     });
     setChats(updatedChats);
   }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+    }
+  };
+
   return (
     <div className="chat-app">
       <div className="chat-list">
@@ -62,7 +70,7 @@ const ChatBotApp = ({ onGoBack, chats, setChats }) => {
             </div>
             <form className="msg-form" onSubmit={(e) => e.preventDefault()}>
                 <i className="fa-solid fa-face-smile emoji"></i>
-                <input type="text" className="msg-input" placeholder="Type a message ..." value={inputvalue} onChange={handleInputChange} />
+                <input type="text" className="msg-input" placeholder="Type a message ..." value={inputvalue} onChange={handleInputChange} onKeyDown={handleKeyDown} />
                 <i className="fa-solid fa-paper-plane" onClick={sendMessage}></i>
             </form>
         </div>
