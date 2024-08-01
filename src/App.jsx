@@ -26,13 +26,11 @@ const App = () => {
 
   return (
     <div className='container'>
-      {/* <ChatBotStart /> */}
       {isChatting ? (
-        <ChatBotApp onGoBack={handleGoBack} />
+        <ChatBotApp onGoBack={handleGoBack} chats={chats} setChats={setChats} />
       ) : (
         <ChatBotStart onStartChat={handleStartChat} />
       )}
-      <ChatBotApp />
     </div>
   )
 }

@@ -1,8 +1,37 @@
 /* eslint-disable react/prop-types */
 // import React from 'react'
+import { useState } from 'react';
 import './ChatBotApp.css';
 
-const ChatBotApp = ({ onGoBack }) => {
+const ChatBotApp = ({ onGoBack, chats, setChats }) => {
+  const [inputvalue, setInputValue] = useState('');
+  const [messages, setMessages] = useState(chats[0]?.messages || []);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  }
+
+  const sendMessage = () => {
+    if (inputvalue.trim === '') return '';
+
+    const newMessage = {
+        type: 'prompt',
+        text: inputvalue,
+        timestamp: new Date().toLocaleTimeString()
+    }
+
+    const updatedMessages = [...messages, newMessage];
+    setMessages(updatedMessages);
+    setInputValue('');
+
+    const updatedChats = chats.map((chat, index) => {
+        if (index === 0) {
+            return { ...chats, messages: updatedMessages };
+        }
+        return chat;
+    });
+    setChats(updatedChats);
+  }
   return (
     <div className="chat-app">
       <div className="chat-list">
@@ -10,18 +39,12 @@ const ChatBotApp = ({ onGoBack }) => {
             <h2>Chat List</h2>
             <i className="bx bx-edit-alt new-chat"></i>
         </div>
-        <div className="chat-list-item active">
-            <h4>Chat 20/07/2024 12:59:42 PM</h4>
-            <i className="bx bx-x circle"></i>
-        </div>
-        <div className="chat-list-item">
-            <h4>Chat 20/07/2024 12:59:42 PM</h4>
-            <i className="bx bx-x circle"></i>
-        </div>
-        <div className="chat-list-item">
-            <h4>Chat 20/07/2024 12:59:42 PM</h4>
-            <i className="bx bx-x circle"></i>
-        </div>
+        {chats.map((chat, index) => (
+            <div key={index} className={`chat-list-item ${index === 0 ? 'active':''}`}>
+                <h4>{chat.id}</h4>
+                <i className="bx bx-x circle"></i>
+            </div>
+        ))}
       </div>
       <div className="chat-window">
         <div className="chat-title">
